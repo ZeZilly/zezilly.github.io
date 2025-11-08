@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+.env
+.env.*
+
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+frontend/node_modules/
+*.log
+
+# VS Code
+.vscode/
+
+# Data artifacts
+/data/
+/tmp/
+.qdrant/
+
+# Docker
+*.pid

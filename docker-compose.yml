@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+  qdrant:
+    image: qdrant/qdrant:latest
+    restart: unless-stopped
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+  n8n:
+    image: n8nio/n8n:latest
+    ports:
+      - "5678:5678"
+    environment:
+      - GENERIC_TIMEZONE=Europe/Istanbul
+      # Change this to a strong secret and move to .env for production
+      - N8N_ENCRYPTION_KEY=dev-insecure
+    volumes:
+      - n8n_data:/home/node/.n8n
+volumes:
+  qdrant_data:
+  n8n_data:
